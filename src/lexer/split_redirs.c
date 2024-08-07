@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_redirs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: ciusca <ciusca@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 19:04:00 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/25 01:32:36 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/06/28 14:15:34 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,17 @@ char	*perform_split(t_shell *shell, int len, char *new_str)
 
 void	split_redirs(t_shell *shell)
 {
+	int		i;
 	int		len;
 	char	*new_str;
+	int		j;
 
+	j = 0;
 	len = 0;
 	new_str = ft_calloc(sizeof(char *), count_split_redirs(shell->input) + 1);
 	if (!new_str)
 		return ;
+	i = -1;
 	new_str = perform_split(shell, len, new_str);
 	shell->input = ft_strdup(new_str);
 	free(new_str);
